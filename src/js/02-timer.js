@@ -28,11 +28,6 @@ const options = {
 
 flatpickr('#datetime-picker', options);
 
-startBtn.addEventListener('click', () => {
-  timer.start();
-});
-startBtn.setAttribute('disabled', 'disabled');
-
 const timer = {
     intervalId: null,
     refs: {
@@ -65,6 +60,10 @@ const timer = {
         }, 1000);
   },
 };
+
+startBtn.addEventListener('click', 
+  timer.start.bind(timer));
+startBtn.setAttribute('disabled', ' ');
  
 function addLeadinZero(value) {
     return String(value).padStart(2, '0')
